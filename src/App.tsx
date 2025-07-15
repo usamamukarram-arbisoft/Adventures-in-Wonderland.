@@ -11,7 +11,9 @@ function App() {
 
   return (
     <div>
-      {location !== ROUTES.login && location !== ROUTES.logout && <TopNavbar />}
+      {location !== ROUTES.login && location !== ROUTES.register && (
+        <TopNavbar />
+      )}
       <Routing />
     </div>
   );
