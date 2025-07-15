@@ -1,0 +1,21 @@
+.background-image {
+  background-image: url("../../assets/snow-mountain-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+.card {
+  background-color: #babcd070;
+}
+.btn-primary {
+  background-color: #536073 !important;
+  border: #536073;
+}
+
+.btn-primary:hover {
+  background-color: #444d5a !important;
+  border: #536073;
+}
