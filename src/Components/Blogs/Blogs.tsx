@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
+import type { RootState } from "../../Store";
 import type { blogList } from "../../Type/Type";
 import { fetchBlogs } from "../../Utility/Api";
 import { Messages } from "../../Utility/CommonMessages";
@@ -10,12 +12,22 @@ import Paginatior from "../Paginatior/Paginatior";
 const Blogs = () => {
   const [blogs, setBlogs] = useState<blogList[]>([]);
   const [currentItems, setCurrentItems] = useState<blogList[]>([]);
+  const searchTerm = useSelector(
+    (state: RootState) => state.Search.searchQuery
+  );
 
   useEffect(() => {
     fetchBlogs().then((res) => {
-      setBlogs(res);
+      if (searchTerm) {
+        const filterBlogs = res.filter((blog) =>
+          blog.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setBlogs(filterBlogs);
+      } else {
+        setBlogs(res);
+      }
     });
-  }, []);
+  }, [searchTerm]);
   const setPagedBlogs = (updatedList: blogList[]) => {
     setCurrentItems(updatedList);
   };

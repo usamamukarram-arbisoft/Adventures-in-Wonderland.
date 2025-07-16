@@ -29,7 +29,9 @@ const DestinationBlog = () => {
     destinationDetail.comments
   );
   const [rating, setRating] = useState<number>(destinationDetail.rating);
-  if (!destinationDetail) return <Navigate to={ROUTES.notFound} />;
+  if (!destinationDetail) {
+    return <Navigate to={ROUTES.notFound} />;
+  }
 
   const handleAddComment = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -71,7 +73,7 @@ const DestinationBlog = () => {
             ))}
           </Carousel>
 
-          <Card className="mb-3">
+          <Card>
             <Card.Body>
               <Card.Title>
                 {Messages.blogDestination.description.value}
@@ -106,7 +108,7 @@ const DestinationBlog = () => {
         </Col>
 
         <Col md={4}>
-          <Card className="mb-3">
+          <Card>
             <Card.Body>
               <Card.Title>
                 {Messages.blogDestination.famousFor.value}
@@ -115,7 +117,7 @@ const DestinationBlog = () => {
             </Card.Body>
           </Card>
 
-          <Card className="mb-3">
+          <Card>
             <Card.Body>
               <Card.Title>
                 {Messages.blogDestination.attractions.value}

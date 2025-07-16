@@ -13,7 +13,7 @@ import SignIn from "../SiginComponent/SignIn";
 const Routing = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to={ROUTES.home} />} />
+      <Route path={ROUTES.root} element={<Navigate to={ROUTES.home} />} />
       <Route path={ROUTES.login} element={<SignIn />} />
       <Route path={ROUTES.register} element={<Register />} />
       <Route path={ROUTES.home} element={<Home />} />

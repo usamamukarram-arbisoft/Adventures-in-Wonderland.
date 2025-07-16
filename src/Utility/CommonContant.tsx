@@ -8,6 +8,7 @@ export const ROUTES = {
   logout: "/logout",
   destinationBlog: "/destinationBlog",
   notFound: "/notfound",
+  root: "/",
   profile: "/profile",
 };
 export const menus = [
