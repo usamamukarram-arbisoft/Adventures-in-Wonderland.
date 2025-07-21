@@ -11,11 +11,11 @@ export const ROUTES = {
   root: "/",
   profile: "/profile",
 };
-export const menus = [
+export const MENUS = [
   { name: Messages.menu.home.value, link: ROUTES.home },
   { name: Messages.menu.blogs.value, link: ROUTES.blogs },
 ];
-export const AuthMenu = [
+export const AUTHMENU = [
   { name: Messages.menu.login.value, link: ROUTES.login },
   { name: Messages.menu.logout.value, link: ROUTES.logout },
 ];

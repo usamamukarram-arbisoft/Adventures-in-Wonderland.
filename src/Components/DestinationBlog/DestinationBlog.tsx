@@ -33,18 +33,18 @@ const DestinationBlog = () => {
     return <Navigate to={ROUTES.notFound} />;
   }
 
-  const handleAddComment = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleAddComment = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     if (!isLoggedIn) {
       navigate(ROUTES.login);
     } else {
-      const formData = new FormData(e.target as HTMLFormElement);
+      const formData = new FormData(event.target as HTMLFormElement);
       const commentObj = Object.fromEntries(formData);
       const newComment = commentObj.comment.toString();
 
       if (newComment) {
         setComments((prevComments) => [...prevComments, newComment]);
-        (e.target as HTMLFormElement).reset();
+        (event.target as HTMLFormElement).reset();
       }
     }
   };

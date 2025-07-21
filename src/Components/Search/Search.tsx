@@ -12,20 +12,20 @@ const Search = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [query, setQuery] = useState("");
-  const searchQuery = (e: React.FormEvent<HTMLFormElement>) => {
+  const searchQuery = (event: React.FormEvent<HTMLFormElement>) => {
     if (location !== ROUTES.blogs) {
       navigate(ROUTES.blogs);
     }
-    e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
+    event.preventDefault();
+    const formData = new FormData(event.target as HTMLFormElement);
     const searchQuery = formData.get("search") as string;
     dispatch(setSearchQuery(searchQuery));
     setQuery(searchQuery);
   };
-  const handleClear = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const handleClear = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
 
-    const form = e.currentTarget.closest("form") as HTMLFormElement | null;
+    const form = event.currentTarget.closest("form") as HTMLFormElement | null;
 
     if (form) {
       const searchInput = form.elements.namedItem(

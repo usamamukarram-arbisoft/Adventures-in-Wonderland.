@@ -96,4 +96,10 @@ export const Messages = {
       value: "© 2025 Travel Explorer. All rights reserved.",
     },
   },
+  navbar: {
+    siteName: {
+      key: "navbar.siteName",
+      value: "Travel Explorer",
+    },
+  },
 };

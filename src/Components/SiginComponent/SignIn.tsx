@@ -30,9 +30,9 @@ const SignIn = () => {
     }
   }, [isLoggedIn]);
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
+  const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.target as HTMLFormElement);
     const loginObj = Object.fromEntries(formData);
 
     const email = loginObj.email.toString();

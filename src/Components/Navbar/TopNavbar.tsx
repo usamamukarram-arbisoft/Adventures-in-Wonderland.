@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import type { RootState } from "../../Store";
 import type { MenuItem } from "../../Type/Type";
-import { AuthMenu, menus, ROUTES } from "../../Utility/CommonContant";
+import { AUTHMENU, MENUS, ROUTES } from "../../Utility/CommonContant";
 import { Messages } from "../../Utility/CommonMessages";
 import Search from "../Search/Search";
 import { logout } from "../SiginComponent/SiginSlice";
@@ -16,8 +16,8 @@ const TopNavbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleNavClick = (link: string, e: React.MouseEvent) => {
-    e.preventDefault();
+  const handleNavClick = (link: string, event: React.MouseEvent) => {
+    event.preventDefault();
 
     if (link === ROUTES.logout) {
       dispatch(logout());
@@ -33,7 +33,7 @@ const TopNavbar = () => {
       key={index}
       as={Link}
       to={menu.link}
-      onClick={(e) => handleNavClick(menu.link, e)}
+      onClick={(event) => handleNavClick(menu.link, event)}
     >
       {menu.name}
     </Nav.Link>
@@ -48,7 +48,7 @@ const TopNavbar = () => {
     >
       <Container fluid className="position-relative">
         <Navbar.Brand as={Link} to={ROUTES.home}>
-          Travel Explorer
+          {Messages.navbar.siteName.value}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
 
@@ -58,7 +58,7 @@ const TopNavbar = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            {menus.map((menuItems, index) => {
+            {MENUS.map((menuItems, index) => {
               const isActive = location === menuItems.link;
               return (
                 <Nav.Link
@@ -89,7 +89,7 @@ const TopNavbar = () => {
                 </a>
               </Nav.Link>
             )}
-            {AuthMenu.map((menuItems, index) => {
+            {AUTHMENU.map((menuItems, index) => {
               if (menuItems.link === "/login" && !user) {
                 return renderLinks(menuItems, index);
               }
